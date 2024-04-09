@@ -1,1 +1,4 @@
 build/
+build_old/
+Figures_mine/
+.gitignore

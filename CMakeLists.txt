@@ -134,7 +134,8 @@ endif()
 # files in your project. 
 #--------------------------------------------------------------
 
-add_executable(CLVSim CLVSim.cpp MLP.cpp MLPEngine.cpp AWDDriveline.cpp MyWheeledVehicle.cpp MonitorComponent.cpp ANCFToroidalTireSPH.cpp)
+file(GLOB SOURCES "src/*.cpp")
+add_executable(CLVSim ${SOURCES})
 
 #--------------------------------------------------------------
 # Set properties for your executable target
@@ -171,5 +172,5 @@ target_link_libraries(CLVSim ${CHRONO_LIBRARIES})
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "<mycustompathforrelease>")
 add_DLL_copy_command()
 
-# Add nlohmann/json to this project
-target_include_directories(CLVSim PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/../../json/include")
+# Add include to this project
+target_include_directories(CLVSim PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
