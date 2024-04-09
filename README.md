@@ -10,7 +10,7 @@ The screenshot of CLVSim with Apollo LRV was shown:
 
 The rendered simulation by [Blender](https://www.blender.org/) is shown:
 
-[<img src="Figures/video_cover.png" alt="rendered simulation" style="zoom: 33%;" />](Figures/rugged_terrain.mp4)
+https://github.com/yiyezhilan/CLVSim/Figures/rugged_terrain.mp4
 
 ### Install
 
