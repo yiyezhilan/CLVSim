@@ -1,5 +1,5 @@
 // =============================================================================
-// Author: Radu Serban
+// Author: Qingning Lan
 // =============================================================================
 //
 // LRV with MLP engine, SPH terrain, FEM tire, and AWD driveline.
