@@ -7,10 +7,11 @@ A high-fidelity instance of CLVSim was modelled and validated based on [Apollo L
 
 The rendered simulation by [Blender](https://www.blender.org/):
 
-https://drive.google.com/file/d/1ip9oPZQdBMiCNhquo9rw77RHhPMyGPR-/view?usp=drive_link
+https://github.com/user-attachments/assets/0b5244df-9bf9-4473-8278-dbd926b0f719
 
 It can also import any terrain, such as a rugged lunar surface. The rendered simulation with surface reconstruction using [OpenVDB](https://github.com/AcademySoftwareFoundation/openvdb) or [splashsurf](https://github.com/InteractiveComputerGraphics/splashsurf):
 
+https://github.com/user-attachments/assets/22d2901b-0101-4f3e-b249-0d69af256b61
 
 ### Install
 
