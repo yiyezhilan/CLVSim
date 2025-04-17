@@ -61,7 +61,7 @@ using namespace chrono::fsi;
 using namespace chrono::vehicle;
 
 // Output directories
-const std::string out_dir = "CLVSim_demo_flex";
+const std::string out_dir = "CLVSim";
 const std::string blender_dir = out_dir + "/BLENDER";
 const std::string SPH_dir = out_dir + "/SPHTerrain";
 const std::string particles_dir = SPH_dir + "/particles";
@@ -71,19 +71,19 @@ const std::string mesh_dir = out_dir + "/MESH";
 const std::string MESH_CONNECTIVITY = out_dir + "/Flex_MESH.vtk";
 
 // Post-processing output
-bool blender_output = false;
+bool blender_output = false;   // not working
 bool create_fender = true;     // create fender or not
 bool debug_mode = false;        // debug mode
 bool moon_mode = true;          // moon mode
-bool flexible_wheel = true;    // use flexible wheel or not
-bool print_particles = false;   // print particles or not
+bool flexible_wheel = false;    // use flexible wheel or not
+bool print_particles = true;   // print particles or not, it's nessary to render animation in Blender
 bool flat_terrain = false;      // flat terrain or not
 // Run-time visualization system (OpenGL or VSG)
 ChVisualSystem::Type vis_type = ChVisualSystem::Type::VSG;
 
 // parameters for SPH terrain
 double target_speed = 2.77777;           // 10 km/h
-double inispacing = 0.02;
+double inispacing = 0.02; 
 double tend = 32;
 double step_size = 4.0e-4;
 ChVector<> active_box = ChVector<>(5.0, 2.0, 5.0);
@@ -180,6 +180,7 @@ std::vector<std::shared_ptr<fea::ChLinkDirFrame>> connectionsD;   ///< tire-whee
 int main(int argc, char* argv[]) {
     // Set the inispacing and time step
     if (flexible_wheel) {
+        // if using flexible wheel, the inispacing and time step should be smaller
         std::cout << "Simulation with flexible wheel" << std::endl;
     	inispacing = 0.01;
 		step_size = 1.0e-4;
@@ -199,7 +200,7 @@ int main(int argc, char* argv[]) {
     double FSIoutputFPS = 25;              // frames output per second (0: never)
     bool visualization_sph = true;         // render SPH particles
     bool visualization_bndry_bce = false;  // render boundary BCE markers
-    bool visualization_rigid_bce = true;   // render wheel BCE markers
+    bool visualization_rigid_bce = false;   // render wheel BCE markers
     bool chase_cam = true;                 // chase-cam or fixed camera
 
     bool verbose = true;
@@ -322,7 +323,7 @@ int main(int argc, char* argv[]) {
     vehicle->SetSuspensionVisualizationType(VisualizationType::PRIMITIVES);
     vehicle->SetSteeringVisualizationType(VisualizationType::PRIMITIVES);
     vehicle->SetWheelVisualizationType(VisualizationType::NONE);
-    vehicle->SetTireVisualizationType(VisualizationType::NONE);
+    vehicle->SetTireVisualizationType(VisualizationType::MESH);
     vehicle->SetChassisCollide(false);
 
 
@@ -891,12 +892,7 @@ void CreateFenders(std::shared_ptr<MyWheeledVehicle> vehicle, ChSystem& sysMBS, 
                                                      0.005);
         fender->GetCollisionModel()->BuildModel();
         fender->SetCollide(false);
-        //fender->AddVisualShape(fender_trimesh_shape, ChFrame<>(0));
-        // if (i == 0 || i == 2) {
-        //     fender->AddVisualShape(fender_trimesh_shape, ChFrame<>(0));
-        // } else {
-        //     fender->AddVisualShape(fender_trimesh_shape, ChFrame<>(NULL, Q_from_AngZ(CH_C_PI)));
-        // }
+        fender->AddVisualShape(fender_trimesh_shape, ChFrame<>(0));
         sysMBS.AddBody(fender);
 
         auto fender_lock = chrono_types::make_shared<ChLinkLockLock>();

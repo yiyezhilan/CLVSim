@@ -1,16 +1,16 @@
 ## CLVSim
+## The code of paper ["CLVSim: A comprehensive framework for crewed lunar vehicle simulation—Modeling and applications"](https://doi.org/10.1002/rob.22421).
 
 Crewed lunar vehicle simulation (CLVSim) is a MBD-FEM-SPH co-simulation framework to simulate crewed lunar vehicle in off-road environment based on [Project Chrono](https://projectchrono.org/), including SPH soft terrain, FEM flexible wheel, vehicle suspension, motor, and driver. Each subsystem was modelled can benchmarked by some specific tests. 
 
 A high-fidelity instance of CLVSim was modelled and validated based on [Apollo LRV](https://www.nasa.gov/history/alsj/lrvhand.html) and experimental data from [Apollo operation handbook](https://www.lpi.usra.edu/lunar/documents/NTRS/collection2/NASA_TM_X_66816.pdf) released by NASA. LRV was modelled and textured in this project.
 
-The screenshot of CLVSim with Apollo LRV was shown: 
+The rendered simulation by [Blender](https://www.blender.org/):
 
-<img src="Figures/screenshot.png" alt="screenshot" style="zoom:50%;" />
+https://drive.google.com/file/d/1ip9oPZQdBMiCNhquo9rw77RHhPMyGPR-/view?usp=drive_link
 
-The rendered simulation by [Blender](https://www.blender.org/) is shown:
+It can also import any terrain, such as a rugged lunar surface. The rendered simulation with surface reconstruction using [OpenVDB](https://github.com/AcademySoftwareFoundation/openvdb) or [splashsurf](https://github.com/InteractiveComputerGraphics/splashsurf):
 
-[<img src="Figures/video_cover.png" alt="rendered simulation" style="zoom: 33%;" />](Figures/rugged_terrain.mp4)
 
 ### Install
 

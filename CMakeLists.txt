@@ -61,6 +61,11 @@ project(CLVSim)
 # and, for demonstration purposes, the PardisoMKL module (optional)
 #--------------------------------------------------------------
 
+set(Chrono_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../build/cmake")
+set(vsg_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../Packages/vsg/lib/cmake/vsg")
+set(vsgImGui_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../Packages/vsg/lib/cmake/vsgImGui")
+set(vsgXchange_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../Packages/vsg/lib/cmake/vsgXchange")
+
 LIST(APPEND CMAKE_PREFIX_PATH "${CMAKE_INSTALL_PREFIX}/../Chrono/lib")
 find_package(Chrono
              COMPONENTS Irrlicht OpenGL Multicore Gpu Vehicle VehicleCosim PardisoMKL VSG
@@ -171,6 +176,18 @@ target_link_libraries(CLVSim ${CHRONO_LIBRARIES})
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/bin")
 # set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "<mycustompathforrelease>")
 add_DLL_copy_command()
+
+# copy vsg dlls to the bin folder
+# only for windows
+file(GLOB VSG_DLLS "${CMAKE_CURRENT_SOURCE_DIR}/../../../Packages/vsg/bin/*.dll")
+
+add_custom_command(TARGET CLVSim
+                   POST_BUILD
+                   COMMAND ${CMAKE_COMMAND} -E copy_if_different
+                           ${VSG_DLLS}
+                           $<TARGET_FILE_DIR:CLVSim>
+                   COMMENT "Copying VSG DLLs to output folder"
+)
 
 # Add include to this project
 target_include_directories(CLVSim PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)

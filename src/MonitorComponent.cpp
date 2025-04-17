@@ -78,4 +78,5 @@ void MonitorGuiComponent::render() {
 
         ImPlot::EndSubplots();
     }
+    ImGui::End();
 }
