@@ -5,11 +5,11 @@ Crewed lunar vehicle simulation (CLVSim) is a MBD-FEM-SPH co-simulation framewor
 
 A high-fidelity instance of CLVSim was modelled and validated based on [Apollo LRV](https://www.nasa.gov/history/alsj/lrvhand.html) and experimental data from [Apollo operation handbook](https://www.lpi.usra.edu/lunar/documents/NTRS/collection2/NASA_TM_X_66816.pdf) released by NASA. LRV was modelled and textured in this project.
 
-The rendered simulation by [Blender](https://www.blender.org/):
+The rendered simulation by [Blender](https://www.blender.org/) for LRV rovering on straight rugged terrain on Moon:
 
 https://github.com/user-attachments/assets/0b5244df-9bf9-4473-8278-dbd926b0f719
 
-It can also import any terrain, such as a rugged lunar surface. The rendered simulation with surface reconstruction using [OpenVDB](https://github.com/AcademySoftwareFoundation/openvdb) or [splashsurf](https://github.com/InteractiveComputerGraphics/splashsurf):
+It can also import any terrain, such as a rugged lunar surface with planned path. The rendered simulation with surface reconstruction using [OpenVDB](https://github.com/AcademySoftwareFoundation/openvdb) or [splashsurf](https://github.com/InteractiveComputerGraphics/splashsurf):
 
 https://github.com/user-attachments/assets/22d2901b-0101-4f3e-b249-0d69af256b61
 
