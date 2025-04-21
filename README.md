@@ -1,7 +1,7 @@
 ## CLVSim
 ## The code of paper ["CLVSim: A comprehensive framework for crewed lunar vehicle simulation—Modeling and applications"](https://doi.org/10.1002/rob.22421).
 
-Crewed lunar vehicle simulation (CLVSim) is a MBD-FEM-SPH co-simulation framework to simulate crewed lunar vehicle in off-road environment based on [Project Chrono](https://projectchrono.org/), including SPH soft terrain, FEM flexible wheel, vehicle suspension, motor, and driver. Each subsystem was modelled can benchmarked by some specific tests. 
+Crewed lunar vehicle simulation (CLVSim) is a MBD-FEM-SPH co-simulation framework to simulate crewed lunar vehicle in off-road environment based on [Project Chrono](https://projectchrono.org/), including SPH soft terrain, FEM flexible wheel, vehicle suspension, motor, and driver. Each subsystem was modelled from LRV engineering drawings and benchmarked by some specific tests. 
 
 A high-fidelity instance of CLVSim was modelled and validated based on [Apollo Lunar Rover Vehicle (LRV)](https://www.nasa.gov/history/alsj/lrvhand.html) and experimental data from [Apollo operation handbook](https://www.lpi.usra.edu/lunar/documents/NTRS/collection2/NASA_TM_X_66816.pdf) released by NASA. LRV was modelled and textured in this project.
 
